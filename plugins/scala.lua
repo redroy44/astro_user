@@ -15,14 +15,10 @@ return {
       "mfussenegger/nvim-dap"
     },
     ft = { "scala", "sbt", "java" },
-    init = function() astronvim.lsp.skip_setup = require("astronvim.utils").list_insert_unique(astronvim.lsp.skip_setup, { "scala", "sbt", "java" }) end,
-    -- init = function()
-    --   vim.api.nvim_create_autocmd("FileType", {
-    --     pattern = { "scala", "sbt", "java" },
-    --     callback = function() require("metals").initialize_or_attach(require("astronvim.utils.lsp").config "metals") end,
-    --     group = vim.api.nvim_create_augroup("nvim-metals", { clear = true }),
-    --   })
-    -- end,
+    init = function()
+      astronvim.lsp.skip_setup = require("astronvim.utils").list_insert_unique(astronvim.lsp.skip_setup,
+        { "scala", "sbt", "java" })
+    end,
     opts = {
     },
     config = function(_, opts)
@@ -32,6 +28,7 @@ return {
       metals_config.settings = {
         showImplicitArguments = true,
         showInferredType = true,
+        enableSemanticHighlighting = true,
         testUserInterface = "Test Explorer",
         excludedPackages = {
           'akka.actor.typed.javadsl',
@@ -43,7 +40,7 @@ return {
 
       local dap = require('dap')
       dap.defaults.fallback.force_external_terminal = true
-    
+
       dap.configurations.scala = {
         {
           type = "scala",
@@ -63,15 +60,15 @@ return {
         },
       }
 
-      metals_config.on_attach = function(client, bufnr) 
-          require("astronvim.utils.lsp").on_attach(client, bufnr) 
-          require('metals').setup_dap()
-        end,
+      metals_config.on_attach = function(client, bufnr)
+            require("astronvim.utils.lsp").on_attach(client, bufnr)
+            require('metals').setup_dap()
+          end,
 
-      vim.api.nvim_create_autocmd("Filetype", {
-        pattern = { "scala", "sbt", "java" }, -- autocmd to start metals
-        callback = function() require("metals").initialize_or_attach(metals_config) end,
-      })
+          vim.api.nvim_create_autocmd("Filetype", {
+            pattern = { "scala", "sbt", "java" }, -- autocmd to start metals
+            callback = function() require("metals").initialize_or_attach(metals_config) end,
+          })
     end,
   },
 }
