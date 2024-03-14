@@ -14,10 +14,10 @@ return {
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap"
     },
-    ft = { "scala", "sbt", "java" },
+    ft = { "scala", "sc", "sbt", "java" },
     init = function()
       astronvim.lsp.skip_setup = require("astronvim.utils").list_insert_unique(astronvim.lsp.skip_setup,
-        { "scala", "sbt", "java" })
+        { "scala", "sc", "sbt", "java" })
     end,
     opts = {
     },
@@ -66,7 +66,7 @@ return {
           end,
 
           vim.api.nvim_create_autocmd("Filetype", {
-            pattern = { "scala", "sbt", "java" }, -- autocmd to start metals
+            pattern = { "scala", "sc", "sbt", "java" }, -- autocmd to start metals
             callback = function() require("metals").initialize_or_attach(metals_config) end,
           })
     end,

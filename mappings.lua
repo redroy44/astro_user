@@ -9,6 +9,9 @@ return {
   n = {
     ["<leader>fM"] = { function() require('telescope').extensions.metals.commands() end, desc = "Metals" },
     ["<leader>ts"] = { function() utils.toggle_term_cmd "sbt" end, desc = "ToggleTerm sbt" },
+    -- diffing buffers
+    ["<leader>Dw"] = { "<cmd>windo diffthis<cr>", desc = "Diff buffers" },
+    ["<leader>DW"] = { "<cmd>diffoff!<cr>", desc = "Exit Diff buffers" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
@@ -20,7 +23,7 @@ return {
     },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
-    ["<leader>b"] = { name = "Buffers" },
+    -- ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },

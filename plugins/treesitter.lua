@@ -9,7 +9,8 @@ return {
       "yaml",
       "json",
       "markdown",
-      "html"
+      "html",
+      "jsonc"
     })
   end,
 }

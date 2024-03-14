@@ -10,4 +10,5 @@ return {
   -- { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
+  -- { import = "astrocommunity.pack.java" },
 }
