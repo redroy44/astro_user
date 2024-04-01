@@ -8,7 +8,8 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim", lazy = false },
   -- { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.editing-support.auto-save-nvim" },
+  -- { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-  -- { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.rust" },
 }
