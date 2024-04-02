@@ -1,6 +1,6 @@
 return {
   -- Add the community repository of plugin specifications
-  "AstroNvim/astrocommunity",
+  "AstroNvim/astrocommunity", version = "^6",
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
@@ -8,8 +8,7 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim", lazy = false },
   -- { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.editing-support.auto-save-nvim" },
-  -- { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.pack.java" },
 }
